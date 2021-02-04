@@ -1,4 +1,4 @@
-# Data-Structures
-## ID    B171891
-## Name  Murari Sabavath 
+## Data-Structures
+### B171891
+### Murari Sabavath 
 
