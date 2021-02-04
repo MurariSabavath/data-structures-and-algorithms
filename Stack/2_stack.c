@@ -1,4 +1,9 @@
-// Call by reference
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: STACK CALL BY REFERENCE
+*/
+
 #include <stdio.h>
 
 struct Stack {

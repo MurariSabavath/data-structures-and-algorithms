@@ -1,3 +1,9 @@
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: INSERTION SORT
+*/
+
 #include <stdio.h>
 
 void printArray(int a[], int n) {
@@ -23,8 +29,14 @@ void insertionSort(int a[], int n) {
 
 
 void main() {
-	int a[] = {3, 8, 9, 1, 6, 2, 0, 4, 7, -1, 10, 11};
-	int len = sizeof(a)/sizeof(a[0]);
+	int i, len;
+	printf("\nEnter length of array : ");
+	scanf("%d", &len);
+	int a[len];
+	for(i = 0; i < len; i++) {
+		printf("\nEnter element : ");
+		scanf("%d", &a[i]);
+	}
 	insertionSort(a, len);
 	printArray(a, len);
 }

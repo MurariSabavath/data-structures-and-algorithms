@@ -1,4 +1,9 @@
-//Call by value pointer
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: STACK POINTER
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,9 @@
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: MIN HEAP
+*/
+
 #include <stdio.h>
 
 void swap(int a[],int i,int min) { 

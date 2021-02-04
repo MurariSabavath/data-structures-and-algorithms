@@ -1,3 +1,9 @@
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: BUBBLE SORT
+*/
+
 #include <stdio.h>
 
 void display(int a[], int len) {
@@ -19,8 +25,14 @@ void bubbleSort(int a[], int len) {
 }
 
 void main() {
-	int a[] = {5, 4, 3, 2, 1};
-	int len = sizeof(a) / sizeof(a[0]);
+	int i, len;
+	printf("\nEnter length of array : ");
+	scanf("%d", &len);
+	int a[len];
+	for(i = 0; i < len; i++) {
+		printf("\nEnter element : ");
+		scanf("%d", &a[i]);
+	}
 	printf("\nArray before Sorting is : ");
 	display(a, len);
 	bubbleSort(a, len);

@@ -1,4 +1,9 @@
-// Call by Value
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: STACK CALL BY VAL
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

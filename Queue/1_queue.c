@@ -1,3 +1,9 @@
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: QUEUE BY VAL
+*/
+
 #include <stdio.h>
 
 struct Queue {

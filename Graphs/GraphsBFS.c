@@ -1,3 +1,9 @@
+/*
+ID: B171891
+NAME: MURARI SABAVATH
+CODE: GRAPH BFS
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -64,7 +70,7 @@ void main() {
 			visit[k] = 1;
 			printf("visited %d\n", k);
 			for(j = 0; j < n; j++) {
-		   	if(b[k][j] == 1 && visit[j] == 0) {
+		   		if(b[k][j] == 1 && visit[j] == 0) {
 		    	   enqueue(q,j);
 		    	}
 			}
