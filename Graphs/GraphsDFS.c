@@ -1,60 +1,90 @@
-/*
-ID : B171891
-NAME : MURARI SABAVATH
-CODE : GRAPH DFS
-*/
+#include <stdio.h>
+#include <stdlib.h>
 
-#include<stdio.h>
-#include<stdlib.h>
+struct Node {
+	struct Node *next;
+	int d;
+};
 
-void dfs(int k,int n,int visit[],int a[n][n]) {
-	int j;
-	if(visit[k] == 0) {
-		visit[k] = 1;
-		printf("%d\n",k);
-		for(j = 0; j < n; j++) {
-			if(a[k][j] == 1 && visit[j] == 0) {
-		    	dfs(j,n,visit,a);
-			}
+struct AdjList {
+	struct Node *head;
+};
+
+struct Graph {
+	struct AdjList *ar;
+	int v;
+};
+
+struct Node* createNode(int src) {
+	struct Node *node = (struct Node*)malloc(sizeof(struct Node));
+	node->d = src;
+	node->next = NULL;
+	return node;
+}
+
+void addEdge(struct Graph *graph, int src, int dest) {
+	struct Node *node = createNode(dest);
+	node->next = graph->ar[src].head;
+	graph->ar[src].head = node;
+	
+	node = createNode(src);
+	node->next = graph->ar[dest].head;
+	graph->ar[dest].head = node;
+}
+
+struct Graph* createGraph(int v) {
+	struct Graph *graph = (struct Graph*)malloc(sizeof(struct Graph));
+	graph->ar = (struct AdjList*)malloc(v * sizeof(struct AdjList));
+	graph->v = v;
+	
+	int i;
+	for(i=0; i<graph->v; i++) {
+		graph->ar[i].head = NULL;
+	}
+	return graph;
+}
+
+void printGraph(struct Graph *graph) {
+	struct Node *node;
+	int i;
+	for(i=0; i<graph->v; i++) {
+		node = graph->ar[i].head;
+		printf("Adj of %d are : ", i);
+		while(node) {
+			printf("%d ", node->d);
+			node = node->next;
 		}
-	}
-} 
-
-
-void main() {
-	int n , i, j, k;
-	printf("Enter the order of matrix:\n");
-	scanf("%d", &n);
-	int a[n][n];
-  	int visit[n];
-	for(i = 0; i < n; i++) {
-   		visit[i]=0;
-	}
-	printf("Enter the values of matrix:\n");
-	for(i = 0; i < n; i++) {
-		for(j = 0; j < n; j++) {
-	    	scanf("%d",&a[i][j]);
-		}
-	}
-	printf("The given matrix is:\n");
-	for(i = 0; i < n; i++) {
-		for(j = 0; j < n; j++) {
-	      printf("%d\t",a[i][j]);
-		}
-	  	printf("\n");
-	}
-	printf("The visiting order is:\n");
-	dfs(k, n, visit, a);
-	for(i = 0; i < n; i++) {
-	  if(visit[i] != 1) {
-	      
-	      dfs(i, n, visit, a);
-	   }
+		printf("\n");
 	}
 }
 
+void dfs(struct Graph *graph, int vertex, int visit[]) {
+	struct Node *node = graph->ar[vertex].head;
+	printf("%d\t", vertex);
+	visit[vertex] = 1;
+	while(node) {
+		if(visit[node->d] == -1) dfs(graph, node->d, visit);
+		node = node->next;
+	}
+}
 
-
-
-
-
+void main() {
+	int v = 5, i;
+	struct Graph *graph = createGraph(v);
+	addEdge(graph, 0, 1);
+	addEdge(graph, 0, 4);
+	addEdge(graph, 4, 3);
+	addEdge(graph, 4, 1);
+	addEdge(graph, 1, 3);
+	addEdge(graph, 1, 2);
+	addEdge(graph, 2, 3);
+	
+	int visit[graph->v];
+	for(i=0; i<graph->v; i++) {
+		visit[i] = -1;
+	}
+	
+	printGraph(graph);
+	
+	dfs(graph, 0, visit);
+}
