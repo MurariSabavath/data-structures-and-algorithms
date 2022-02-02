@@ -1,9 +1,3 @@
-/*
-ID: B171891
-NAME: MURARI SABAVATH
-CODE: GRAPH BFS
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 

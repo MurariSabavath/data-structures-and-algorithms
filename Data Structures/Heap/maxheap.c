@@ -1,9 +1,3 @@
-/*
-ID: B171891
-NAME: MURARI SABAVATH
-CODE: MAXHEAP
-*/
-
 #include <stdio.h>
 
 void swap(int a[],int i,int min) {
